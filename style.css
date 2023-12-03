@@ -14,3 +14,20 @@ body {
     background-color: var(--background-color);
 }
 
+.paddle {
+    --postion: 50;
+    position: absolute;
+    background-color: var(--foreground-color);
+    top: calc(var(--postion) * 1vh);
+    transform: translateY(-50%);
+    width: 1vh;
+    height: 10vh;
+}
+
+.paddle.left {
+    left: 1vw;
+}
+
+.paddle.right {
+    right: 1vw;
+}
