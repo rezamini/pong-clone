@@ -16,10 +16,10 @@ body {
 }
 
 .paddle {
-    --postion: 50;
+    --position: 50;
     position: absolute;
     background-color: var(--foreground-color);
-    top: calc(var(--postion) * 1vh);
+    top: calc(var(--position) * 1vh);
     transform: translateY(-50%);
     width: 1vh;
     height: 10vh;
