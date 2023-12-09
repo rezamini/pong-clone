@@ -7,6 +7,10 @@ export default class Ball {
     this.reset();
   }
 
+  rect() {
+    return this.ballElement.getBoundingClientRect();
+  }
+
   get x() {
     return parseFloat(
       getComputedStyle(this.ballElement).getPropertyValue("--x")
@@ -46,9 +50,20 @@ export default class Ball {
     this.x += this.direction.x * this.velocity * delta;
     this.y += this.direction.y * this.velocity * delta;
     this.velocity += VELOCITY_INCREASE * delta;
+    const rect = this.rect();
+
+    if (rect.bottom >= window.innerHeight || rect.top <= 0) {
+      this.direction.y *= -1;
+    }
+
+    // if(rect.right >= window.innerWidth || rect.left <= 0){
+    //     this.direction.x *= -1;
+    // }
+
   }
 }
 
 function randomNumberBetween(min, max) {
   return Math.random() * (max - min) + min;
 }
+
