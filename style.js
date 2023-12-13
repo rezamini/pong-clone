@@ -11,6 +11,8 @@ function update(time) {
     const delta = time - lastTime;
 
     ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
+    // console.log(delta);
+    computerPaddle.update(delta, ball.y);
 
     if(isLose()){
       handleLose();
