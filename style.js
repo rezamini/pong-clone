@@ -38,6 +38,9 @@ function handleLose(){
   }else{
     computerScoreElement.textContent = parseInt(computerScoreElement.textContent) + 1;
   }
+  
+  ball.reset();
+  computerPaddle.reset();
 }
 
 document.addEventListener("mousemove", e => {
