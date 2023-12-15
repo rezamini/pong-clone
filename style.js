@@ -12,6 +12,9 @@ function update(time) {
   if (lastTime != null) {
     const delta = time - lastTime;
 
+    //update the background hue 
+    const hue = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hue"));
+    document.documentElement.style.setProperty("--hue", hue + delta * 0.01);
     ball.update(delta, [playerPaddle.rect(), computerPaddle.rect()]);
     // console.log(delta);
     computerPaddle.update(delta, ball.y);
@@ -38,7 +41,7 @@ function handleLose(){
   }else{
     computerScoreElement.textContent = parseInt(computerScoreElement.textContent) + 1;
   }
-  
+
   ball.reset();
   computerPaddle.reset();
 }
